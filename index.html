@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>monaco</title>
+</head>
+<body>
+    <h1>monaco</h1>
+    <p id="textBlock">hello. its me</p>
+    <script src="js.js"></script>
+    <div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+
+<script src="/node_modules/monaco-editor/min/vs/loader.js"></script>
+<script>
+    require.config({ paths: { 'vs': '/node_modules/monaco-editor/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        var editor = monaco.editor.create(document.getElementById('container'), {
+            value: document.getElementById('textBlock').textContent,
+            // language: 'javascript'
+        });
+    });
+</script>
+</body>
+</html>
